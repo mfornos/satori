@@ -74,7 +74,6 @@ Simple task tracking application.
 Features
 
 * Jade templating
-* JQuery
 * File upload
 
 [![Screenshot 0](http://mfornos.github.com/satori/shots/track00s.png)](http://mfornos.github.com/satori/shots/track00.png)
