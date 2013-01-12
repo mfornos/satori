@@ -24,7 +24,7 @@ Use the following credentials to sign in example applications.
 </table>
  
 
-### Jersey based webapps
+### Jersey webapps
 
 __Events__
 
@@ -65,7 +65,7 @@ CIA fact book search and world map visualization.
 ![Screenshot 0](/path/to/img.jpg)
 ![Screenshot 1](/path/to/img.jpg)
 
-### Scalate
+### Scalate webapps
 
 __Track__
 
@@ -79,7 +79,7 @@ Features
 
 ![Screenshot 0](/path/to/img.jpg)
 
-### Resteasy based webapps
+### Resteasy webapps
 
 __Monsters__
 
