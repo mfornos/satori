@@ -1,0 +1,37 @@
+   <div class="vevent-content">   
+      <span class="description">{{{description}}}</span>
+      {{#sameDay dateStart dateEnd}}
+        <span class="dtstart"><i class="icon-calendar"></i> {{dateFormat dateStart "MMMM dd yyyy"}}
+          <span class="value-title" title="{{isoDate dateStart}}"></span>
+          </span><span class="dtimes"><i class="icon-time"></i> {{dateFormat dateStart "hh:mma"}}-{{dateFormat dateEnd "hh:mma"}}
+          <span class="value-title" title="{{isoDate dateEnd}}"></span>
+        </span>
+        {{else}}
+        <span class="dtstart"><i class="icon-calendar"></i> {{dateFormat dateStart "MMM dd yyyy, hh:mma"}}
+          <span class="value-title" title="{{isoDate dateStart}}"></span>
+          </span> · <span class="dtend">{{dateFormat dateEnd "MMM dd yyyy, hh:mma"}}
+          <span class="value-title" title="{{isoDate dateEnd}}"></span>
+        </span>
+      {{/sameDay}}
+      
+      <div class="location vcard">
+        {{#if address}}
+        <span class="adr">
+          <span class="street-address"><i class="icon-map-marker"></i> {{address}}</span>
+        </span>
+        <span class="geo">
+          <span class="latitude">
+            <span class="value-title" title="{{location.lat}}"></span>
+          </span>
+          <span class="longitude">
+            <span class="value-title" title="{{location.lng}}"></span>
+          </span>
+        </span>
+        {{else}}
+        <span class="adr">
+          <span class="street-address"><i class="icon-map-marker"></i> …</span>
+        </span>
+        {{/if}}
+      </div>
+   </div>
+        

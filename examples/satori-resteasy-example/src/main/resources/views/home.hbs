@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>{{msg "main.title"}}</title>
+<link rel="stylesheet" href={{@"/styles/main.css"}}/>
+<script src={{@"/js/libs/jquery.min.js"}}></script>
+<script src={{@"/js/app.js"}}></script>
+</head>
+
+<body>
+  <div id="bar">
+    <div id="container">
+      <div id="title">{{msg "main.title"}}</div>
+      {{#user}}
+        <div id="userContainer">
+          <a href={{@"signout"}} id="logoutButton">
+            {{gravatar person.email size=25}} <span>{{msg "Logout"}}</span>
+          </a>
+        </div>
+        {{else}}
+        <div id="loginContainer">
+          <a href="#" id="loginButton"><span>Login</span><em></em></a>
+          <div style="clear:both"></div>
+          <div id="loginBox">
+            {{> signin}}
+          </div>
+        </div>
+      {{/user}}
+    </div>
+  </div>
+  
+  <div id="persons">  
+    {{#.}}
+      {{> person}}
+    {{/.}}
+  </div>
+    
+</body>
+</html>

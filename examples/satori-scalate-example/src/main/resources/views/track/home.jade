@@ -1,0 +1,40 @@
+
+= attributes("title") = "Track Application"
+- import models._
+
+-@ val it: Map[Long, TrackPoint] 
+
+script(src = {<("/js/track_app.js")})
+
+.add
+  form.light(action = {<("track")} method = "POST" enctype="multipart/form-data")
+    fieldset
+      legend Tracker
+    input(type="text" name = "txt" placeholder = "Track something today..." tabindex="1")
+    section
+      label(for="image") Some image
+      input(name = "image" type = "file")
+    section
+    button(type="submit" tabindex="2") 
+      i.foundicon-plus
+        span Add Track
+  form          
+    input(type="hidden" id="editUri" value={<("track/edit")})
+
+- for((date, points) <- it)
+  .points
+    .date
+      - points.file match
+        - case Some(f) => 
+          img(src = {f.content}) 
+          span= points.date
+        - case None =>
+          i.foundicon-calendar 
+            span= date
+    button.delete( id = {<(uriBuilder("track").queryParam("date", points.dateString))} )
+      i.foundicon-remove
+    .line
+    - for((id, text) <- points.sorted)
+      .point
+        .editable(id={id} date={points.dateString})= text
+        .line

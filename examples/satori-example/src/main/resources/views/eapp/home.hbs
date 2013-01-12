@@ -1,0 +1,42 @@
+{{#partial "title"}} {{msg "Home"}} {{/partial}} 
+{{#partial "goodness"}}
+  App.onSuccess("#cform-dialog", "{{@"/eapp" wrap="false"}} #events");
+{{/partial}} 
+{{#partial "content"}}
+
+<div id="events" class="home">
+
+  <div class="clearfix">
+    <h1>{{msg "main.title"}}
+      {{#hasRole "admin"}}
+        <a class="btn btn-primary open-dialog" rel="cform-dialog" href={{@"/eapp/event/form/"}}><i class="icon-white icon-plus"></i> Event</a> 
+      {{/hasRole}}
+    </h1>
+  </div>
+
+  {{#each .}}
+    <div class="vevent">
+      <a href={{@ "/eapp/event/{id}" id}} class="url summary">{{title}}</a>
+      {{> eapp/vevent}}
+      <div class="reservations">
+        <div>
+          {{#reservations}}
+            <img src="{{gravatar email size=25}}" alt="{{name}}" class="hint" rel="tooltip" title="<strong>{{name}}</strong> {{msg type}}" />
+          {{/reservations}}
+        </div>
+        <span class="circle">{{reservationsNum}}</span> {{#flow}}{{plural "reservation::reservations" reservationsNum}}{{/flow}}
+      </div>
+      {{#hasRole "admin"}}
+        <div class="section-tools">
+          <a class="btn confirm" href={{@"/eapp/event/delete/{id}" id}}><i class="icon-remove"></i></a>
+          <a class="btn open-dialog" rel="cform-dialog" href={{@"/eapp/event/form/{id}" id}}><i class="icon-edit"></i></a>
+        </div>
+      {{/hasRole}} 
+    </div>
+    {{else}}
+    No events by now.
+  {{/each}}
+</div>
+
+{{/partial}} 
+{{> eapp/layout/base}}

@@ -1,0 +1,40 @@
+{{#partial "title"}}Event Dialog{{/partial}} 
+{{#partial "goodness"}}
+   Modals.event.show({ completed: '{{success}}', error: '{{errors.empty}}', marked: false, loc: '{{location}}', id: '{{id}}' });
+{{/partial}} 
+{{#partial "content"}}
+    {{#form "/eapp/event" class="ajax form-horizontal" style="margin:0;"}}
+        {{#fieldset}}
+          {{#group label="title" error=errors.title}}
+            {{input name="title" value=title help=errors.title.message class="input span4" placeholder="the event title" autofocus="autofocus"}}
+          {{/group}}
+          {{#group label="dates" error=errors.root}}
+            {{dateField name="dateStart" value=dateStart format="date.time" class="input span2 datepicker"}}
+            -
+            {{dateField name="dateEnd" value=dateEnd format="date.time" help=errors.root.message class="input span2 datepicker"}}
+          {{/group}}
+          {{#group label="description" error=errors.description}}
+            {{textarea name="description" value=description help=errors.description.message rows="4" limit="500" class="input span4" placeholder="a fresh description"}}
+          {{/group}}
+          {{#group label="location"}}
+            {{input name="address" value=address class="input span4" placeholder="auto-completed from map location"}}
+            <p class="help-block">Click on the map to add a location and drag the marker to change it.</p>
+          {{/group}}
+          <div class="map-input">
+             <div id="map-canvas" class="map"></div>
+             <span class="inset"></span>
+             <div id="marker-dialog" style="display: none;"></div>
+          </div>
+        {{/fieldset}}
+        
+        {{input type="hidden" name="id" value=id}}
+        {{input type="hidden" name="location" value=location}}
+        
+        <div class="form-actions" style="overflow:hidden;">
+          <a href="#" class="btn close-dialog" tabindex="10">Close</a>
+          <button type="submit" class="btn btn-primary" tabindex="11">Save changes</button>
+        </div>
+    {{/form}}
+{{/partial}}
+
+{{> eapp/layout/modal}}

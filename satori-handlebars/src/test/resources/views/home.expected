@@ -1,0 +1,13 @@
+
+
+<!-- base.hbs -->
+<html>
+<head>
+  <title>
+     Home 
+  </title>
+</head>
+<body>
+  Lorem ipsum content here 
+  footer</body>
+</html>

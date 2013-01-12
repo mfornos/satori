@@ -1,0 +1,40 @@
+<div class="personContainer">
+  <div class="person">
+    <div class="name">
+      {{gravatar email size=100}} <span>{{name}}</span>
+    </div>
+    {{#flow}}
+    <div class="ff">
+      <div class="followers">
+        <h2>followers</h2>
+        <span class="list">
+          {{#followers}}
+            {{gravatar email size=25}}
+            {{else}}
+            no one
+          {{/followers}}
+        </span>
+      </div>
+      <div class="follows">
+        <h2>follows</h2>
+        <span class="list">
+          {{#follows}}
+            {{gravatar email size=25}}
+            {{else}}
+            no one
+          {{/follows}}
+          </span>
+      </div>
+    </div>
+    {{#user}}
+      <div class="actions">
+        {{#following id}}
+          <a class="action btn" href={{@"/unfollow/{id}" id}}><span>Unfollow</span></a>
+          {{else}}
+          <a class="action btn" href={{@"/follow/{id}" id}}><span>Follow</span></a>
+        {{/following}}
+      </div>
+    {{/user}}
+  </div>
+  {{/flow}}
+</div>

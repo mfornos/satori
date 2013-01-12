@@ -1,0 +1,32 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      {{#block "nav"}}
+        {{#flow}}
+        <a class="brand" href={{@"/eapp"}}>{{msg "main.title"}}</a>
+        <ul class="nav">
+          {{navlink "/eapp" label="Home"}}
+          {{#hasRole "admin"}}
+             {{navlink "/eapp/events/form" regexp="/eapp/events/form/.*" label="Bulk"}}
+          {{/hasRole}}
+		  {{navlink "/eapp/about" label="About"}}
+		</ul>
+		<ul class="nav pull-right">
+		  {{#user}}
+            <li><span><i class="icon-user icon-white"></i> Logged in as <strong>{{subject.principal}}</strong></span></li>
+            <li class="divider-vertical"></li>
+            <li><a href={{@"/logout"}}>Logout</a></li>
+            {{else}}
+            {{navlink "/signin" label="Sign in" icon="icon-user icon-white" class="open-dialog" rel="signin-dialog"}}
+          {{/user}}
+		</ul>
+		{{/flow}}
+      {{/block}}
+      <ul id="loading" class="nav" style="display:none">
+        <li><img src={{@"/assets/styles/img/loading.gif"}} /></li>
+        <li><span>Loading...</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+

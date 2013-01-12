@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{#block "title"}} Default Title {{/block}}</title>
+    <meta charset="utf-8">
+    {{> eapp/layout/imports}}
+    <script>
+      $(function() {
+          
+        var App = new EventsApp();
+                
+        {{#block "goodness"}}
+          // put all your jQuery goodness here.
+        {{/block}}
+          
+      });
+    </script>
+  </head>
+  
+  <body>
+    {{> eapp/layout/navbar}}
+    <div id="main" class="container">
+	  <!--Body content--> 
+	  {{#block "content"}}
+	    This will be default content that appears in a deriving template if it 
+	    does not declare a replacement for the "content" section. 
+	  {{/block}}
+    </div>
+    {{> eapp/layout/footer}}
+  </body>
+</html>

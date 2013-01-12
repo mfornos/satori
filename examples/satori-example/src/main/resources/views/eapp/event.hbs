@@ -1,0 +1,59 @@
+{{#partial "title"}}{{title}}{{/partial}}
+
+{{#partial "goodness"}}
+   App.onSuccess("#cform-dialog", function(e, o) { window.location.href='{{@"/eapp/event/" wrap=0}}' + (o.id||'{{id}}'); });
+   App.views.eventView.show({{location.lat}}, {{location.lng}});
+{{/partial}}
+
+{{#partial "content"}}
+<div class="row">
+  <div class="span3 nav-events">
+    <ul class="nav nav-pills nav-stacked">
+    {{#events}}
+      {{navlink "/eapp/event/{id}" id label=title}}
+    {{/events}}
+    </ul>
+    {{#hasRole "admin"}}
+       <a class="btn open-dialog" rel="cform-dialog" href={{@ "/eapp/event/form/"}}><i class="icon-plus"></i> Event</a>
+    {{/hasRole}}
+  </div>
+<div class="span8">
+<div id="events" class="vevent">
+  <div class="clearfix">
+    <h1 class="event-title">
+      {{title}}
+      {{#hasRole "admin"}}
+        <a class="btn open-dialog" rel="cform-dialog" href={{@ "/eapp/event/form/{id}" id}}><i class="icon-edit"></i> Edit</a>
+      {{/hasRole}}
+    </h1>
+  </div>
+  {{> eapp/vevent}}
+  {{#if location}}
+    <div class="map-input">
+      <div id="vevent-map-canvas" class="map"></div>
+      <span class="inset"></span>
+    </div>
+  {{/if}}
+</div>
+<div id="reservs">
+  {{#user}}
+      <a class="btn add-reserv btn-primary open-dialog" rel="cform-dialog" href={{@ "/eapp/reservation/form/event/{id}" id}}><i class="icon-white icon-plus"></i> Reservation</a>
+  {{/user}}
+  {{#reservations}}
+  <div class="reserv">
+    <span class="reserv-edit">
+    <img src="{{gravatar email}}" class="hint" rel="tooltip" title="<strong>{{name}}</strong> {{msg type}}" />
+    {{#canEdit .}}
+      <a class="btn open-dialog" rel="cform-dialog" href={{@ "/eapp/reservation/form/{id}" id}}><i class="icon-edit"></i></a>
+    {{/canEdit}}
+    </span>
+  </div>
+    {{else}}
+    <!-- no reservations -->
+  {{/reservations}} 
+</div>
+</div>
+</div>
+
+{{/partial}}
+{{> eapp/layout/base}}

@@ -1,0 +1,25 @@
+-@ var body: String
+-@ var headers: String = ""
+-@ var title: String = "Track application"
+
+- import satori.scala.UriHelpers._
+
+!!! 5
+html(lang="en")
+  head
+    meta(charset = "UTF-8")
+    title= title
+    link(href={<("/styles/foundation_icons_general_enclosed/stylesheets/general_enclosed_foundicons.css")} rel="stylesheet")
+    link(href={<("/styles/foundation_icons_general_enclosed/stylesheets/general_enclosed_foundicons_ie7.css")} rel="stylesheet")
+    link(href={<("/styles/ext/bauhaus.css")} rel="stylesheet")
+    link(href={<("/styles/style.css")} rel="stylesheet")
+    script(src={<("/js/libs/jquery.min.js")})
+    script(src={<("/js/libs/jquery.jeditable.js")})
+    !~~ headers
+  body
+    .container
+      !~~ body
+    footer
+      p &#9776; Satori
+      p 
+        a(href={<("/")}) &#8629; back to index

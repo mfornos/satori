@@ -1,0 +1,7 @@
+<form>
+<label>hi!</label>
+<input type="hello.world" value="hello.world" />
+<textarea>hello.world no trans</textarea>
+</form> 
+<hello.world hello.world="hello.world" />
+<p><i>hi!</i> bla bla</p>

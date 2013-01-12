@@ -1,0 +1,241 @@
+body {
+	letter-spacing: 0.1em;
+	width: 800px;
+}
+
+a {
+	text-decoration: none;
+	color: #369;
+}
+
+table caption+thead tr:first-child th,table caption+thead tr:first-child td,table colgroup+thead tr:first-child th,table colgroup+thead tr:first-child td,table thead:first-child tr:first-child th,table thead:first-child tr:first-child td
+	{
+	border-top: 0;
+}
+
+table thead th {
+	vertical-align: bottom;
+	font-weight: 400;
+	color: #222;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	border-spacing: 0;
+}
+
+table th,table td {
+	padding: 8px;
+	line-height: 18px;
+	text-align: left;
+	vertical-align: top;
+	border-top: 1px solid #DDD;
+}
+
+table th.right,table td.right {
+	text-align: right;
+}
+
+table tr.even td {
+	background-color: #FCFBF4;
+}
+
+table tr td a {
+	display: block;
+}
+
+table tr:hover td {
+	background-color: #ECFFFB;
+}
+
+#search {
+	margin-bottom: 10px;
+}
+
+#search input[type="text"] {
+	width: 100%;
+}
+
+#pagination-holder {
+	margin: 15px 0 -10px 0;
+}
+
+#wfb-app {
+	background: white;
+	padding: 20px;
+	margin-bottom: 40px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+	-ms-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+	-webkit-border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-ms-border-radius: 0 0 5px 5px;
+	-o-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+}
+
+#card {
+	width: 800px;
+	margin: 0 auto;
+	line-height: 1.5em;
+}
+
+#card #head {
+	border-bottom: 1px solid #EEE;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	overflow: hidden;
+	clear: both;
+}
+
+#card #head .country,#card #head .metrics {
+	float: left;
+}
+
+#card #head .country {
+	margin-right: 10px;
+	width: 60%;
+}
+
+#card #head .title {
+	text-transform: uppercase;
+	font-size: 1.5em;
+	padding-bottom: 10px;
+}
+
+#card .sname,#card .mname {
+	display: block;
+	clear: both;
+}
+
+#card .sname .label,#card .mname .label {
+	color: #888;
+	display: block;
+	float: left;
+	text-transform: capitalize;
+}
+
+#card .sname .label {
+	width: 200px;
+}
+
+#card .mname .label {
+	width: 120px;
+	text-align: left;
+}
+
+#card dt {
+	margin-bottom: 15px;
+	font-size: 1.25em;
+	color: #222;
+}
+
+.fancybox-next {
+	right: -55px;
+	width: 55px;
+}
+
+.fancybox-prev {
+	left: 0;
+	width: 10%;
+}
+
+.jspContainer {
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane {
+	position: absolute;
+}
+
+.jspVerticalBar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 16px;
+	height: 100%;
+	background: transparent;
+}
+
+.jspHorizontalBar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: transparent;
+}
+
+.jspVerticalBar *,.jspHorizontalBar * {
+	margin: 0;
+	padding: 0;
+}
+
+.jspCap {
+	display: none;
+}
+
+.jspHorizontalBar .jspCap {
+	float: left;
+}
+
+.jspTrack {
+	background: #ddd;
+	position: relative;
+	border-radius: 5px;
+}
+
+.jspDrag {
+	background: #bbb;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	border-radius: 15px;
+}
+
+.jspHorizontalBar .jspTrack,.jspHorizontalBar .jspDrag {
+	float: left;
+	height: 100%;
+}
+
+.jspArrow {
+	background: #50506d;
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+}
+
+.jspArrow.jspDisabled {
+	cursor: default;
+	background: #808080;
+}
+
+.jspVerticalBar .jspArrow {
+	height: 16px;
+}
+
+.jspHorizontalBar .jspArrow {
+	width: 16px;
+	float: left;
+	height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus {
+	outline: none;
+}
+
+.jspCorner {
+	background: #CCC;
+	float: left;
+	height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner {
+	margin: 0 -3px 0 0;
+}

@@ -1,0 +1,345 @@
+body {
+	font-size: 14px;
+	line-height: 16px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	letter-spacing: .1;
+}
+
+form legend small {
+	font-size: 13.5px;
+}
+
+form label, form input, form button, form select, form textarea {
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 18px;
+}
+
+form {
+	display: block;
+	width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form section {
+	height: auto;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 5px;
+}
+
+form section.right {
+	padding-left: 140px;
+}
+
+form fieldset {
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+	margin-left: 0;
+	padding-left: 0;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+form.light fieldset,form.light .buttons {
+	border-top: 1px solid rgba(50, 50, 50, 0.5);
+}
+
+form.dark fieldset,form.dark .buttons {
+	border-top: 1px solid #DDD;
+}
+
+form fieldset legend {
+	padding-right: 10px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+form .buttons {
+	padding-top: 15px;
+	margin: 20px 0;
+}
+
+form label.title {
+	display: block;
+	width: 120px;
+	float: left;
+	text-align: right;
+	margin-left: -140px;
+	margin-right: 20px;
+	line-height: 30px;
+}
+
+form.light label.title {
+	font-weight: 100;
+}
+
+form label {
+	cursor: pointer;
+}
+
+form input {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; /*disables inner shadows on iOS*/
+	outline: none;
+}
+
+form input[type="text"], form input[type="password"] {
+	width: 240px;
+	outline: none;
+	padding: 5px;
+	border-radius: 3px;
+}
+
+textarea {
+	width: 240px;
+	height: 100px;
+}
+
+form input[type="text"], form input[type="password"], form input[type="checkbox"], form input[type="radio"], form select, form textarea
+	{
+	-moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	-webkit-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	-o-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	margin: 3px;
+}
+
+form input[type="text"]:focus,form input[type="radio"]:focus,form input[type="checkbox"]:focus,form input[type="submit"]:focus,form input[type="reset"]:focus,form input[type="button"]:focus,form textarea:focus,form button:focus
+	{
+	box-shadow: 0px 0px 0px 3px rgba(51, 181, 229, 0.3);
+	border-color: #33B5E5;
+	outline: none;
+}
+
+form input[type="radio"] {
+	width: 16px;
+	height: 16px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	margin: 2px;
+	position: relative;
+	top: 4px;
+}
+
+form input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+	position: relative;
+	top: 4px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+form select {
+	-webkit-appearance: none;
+	width: 60px;
+	height: 30px;
+	padding: 5px;
+	display: block;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	padding-left: 10px;
+	outline: none;
+	border-radius: 3px;
+}
+
+form select:focus {
+	border-color: #33B5E5 !important;
+	box-shadow: 0px 0px 0px 3px rgba(51, 181, 229, 0.3);
+}
+
+form select option {
+	text-align: right;
+}
+
+form input[type="submit"], form input[type="reset"], form input[type="button"], form button {
+	background: #DEDEDE;
+	border-width: 1px;
+	border-style: solid;
+	border-bottom-color: #777;
+	border-right-color: #bbb;
+	border-top-color: #ddd;
+	border-left-color: #bbb;
+	border-radius: 1px;
+	-moz-box-shadow: 0px 1px 2px 0px #ccc;
+	-webkit-box-shadow: 0px 1px 2px 0px #ccc;
+	box-shadow: 0px 1px 2px 0px #ccc;
+	color: #333;
+	width: 120px;
+	height: 40px;
+	border-radius: 2px;
+	outline: none;
+	font-size: 1.15em;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+form input[type="submit"]:active, formi nput[type="reset"]:active,form input[type="button"]:active, form button:active
+	{
+	background: #33B5E5;
+	border-bottom-color: #0099CC;
+	border-right-color: #11B3C3;
+	border-top-color: #66D7F7;
+	border-left-color: #11B3C3;
+	box-shadow: 0px 0px 0px 4px rgba(51, 181, 229, 0.3);
+	color: #FFF;
+}
+
+/*dark form*/
+form.dark input[type="text"],form.dark input[type="password"],form.dark textarea
+	{
+	background: rgba(255, 255, 255, 0.7);
+	border-top: 1px solid #aaa;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ddd;
+	color: #333;
+}
+
+form.dark input[type="radio"] {
+	border: 1px solid #BBB;
+	background: url('dots.png') 0px 0px no-repeat;
+}
+
+form.dark input[type="radio"]:checked {
+	background: url('dots.png') 0px -16px no-repeat;
+}
+
+form.dark input[type="checkbox"] {
+	border: 1px solid #BBB;
+	background: url('tick.png') 0px 0px no-repeat;
+}
+
+form.dark input[type="checkbox"]:checked {
+	background: url('tick.png') 0px -16px no-repeat;
+}
+
+form.dark select {
+	border: solid 1px #BBB;
+	background: url('arrows-dk.png') no-repeat 45px 9px
+		rgba(255, 255, 255, 0.9);
+}
+
+/*light form*/
+form.light {
+	color: #fff;
+}
+
+form.light input[type="text"],form.light input[type="password"],form.light select,form.light textarea
+	{
+	background: rgba(50, 50, 50, .5);
+	border: 1px solid rgba(50, 50, 50, .5);
+	color: #FFF;
+}
+
+form.light input[type="submit"]:hover,form.light input[type="reset"]:hover,form.light input[type="button"]:hover,form.light button:hover {
+    background-color: #555;
+}
+
+form.light input[type="radio"] {
+	border: 1px solid #555;
+	background: url('dots.png') -16px 0px no-repeat;
+}
+
+form.light input[type="radio"]:checked {
+	background: url('dots.png') -16px -16px no-repeat;
+}
+
+form.light input[type="checkbox"] {
+	border: 1px solid #555;
+	background: url('tick.png') -16px 0px no-repeat;
+}
+
+form.light input[type="checkbox"]:checked {
+	background: url('tick.png') -16px -16px no-repeat;
+}
+
+form.light select {
+	background: url('arrows-lt.png') no-repeat 45px 9px rgba(50, 50, 50, .5);
+}
+
+form.light input[type="submit"],form.light input[type="reset"],form.light input[type="button"],form.light button
+	{
+	background: #444;
+	border-width: 1px;
+	border-style: solid;
+	border-bottom-color: #222;
+	border-right-color: #555;
+	border-top-color: #777;
+	border-left-color: #555;
+	-moz-box-shadow: 0px 1px 2px 0px #111;
+	-webkit-box-shadow: 0px 1px 2px 0px #111;
+	box-shadow: 0px 1px 2px 0px #111;
+	color: #FFF;
+	font-weight: 100;
+}
+
+form.light input[type="submit"]:active,form.light input[type="reset"]:active,form.light input[type="button"]:active,form.light button:active
+	{
+	background: #33B5E5;
+	border-bottom-color: #0099CC;
+	border-right-color: #11B3C3;
+	border-top-color: #66D7F7;
+	border-left-color: #11B3C3;
+	box-shadow: 0px 0px 0px 4px rgba(51, 181, 229, 0.3);
+	-moz-box-shadow: 0px 0px 0px 4px rgba(51, 181, 229, 0.3);
+    -webkit-box-shadow: 0px 0px 0px 4px rgba(51, 181, 229, 0.3);
+	color: #FFF;
+}
+
+/* retina display overrides */
+@media ( -webkit-min-device-pixel-ratio :2) {
+	form.dark input[type="checkbox"] {
+		border: 1px solid #aaa;
+		background: url('tick@2x.png') 0px 0px no-repeat;
+		background-size: 32px 32px;
+	}
+	form.dark input[type="checkbox"]:checked {
+		background: url('tick@2x.png') 0px -16px no-repeat;
+	}
+	form.light input[type="checkbox"] {
+		border: 1px solid #fff;
+		background: url('tick@2x.png') -16px 0px no-repeat;
+		background-size: 32px 32px;
+	}
+	form.light input[type="checkbox"]:checked {
+		background: url('tick@2x.png') -16px -16px no-repeat;
+	}
+	form.dark input[type="radio"] {
+		border: 1px solid #aaa;
+		background: url('dots@2x.png') 0px 0px no-repeat;
+		background-size: 32px 32px;
+	}
+	form.dark input[type="radio"]:checked {
+		background: url('dots@2x.png') 0px -16px no-repeat;
+	}
+	form.light input[type="radio"] {
+		border: 1px solid #fff;
+		background: url('dots@2x.png') -16px 0px no-repeat;
+		background-size: 32px 32px;
+	}
+	form.light input[type="radio"]:checked {
+		background: url('dots@2x.png') -16px -16px no-repeat;
+	}
+	form.dark select {
+		border: 1px solid #aaa;
+		background: url('arrows-dk@2x.png') no-repeat 45px 9px
+			rgba(255, 255, 255, 0.9);
+		background-size: 5px 9px;
+	}
+	form.light select {
+		color: #4d4d4d;
+		border: 1px solid #fff;
+		background: url('arrows-lt@2x.png') no-repeat 45px 9px
+			rgba(255, 255, 255, 0.6);
+		background-size: 5px 9px;
+	}
+}

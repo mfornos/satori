@@ -1,0 +1,2 @@
+satori.jersey.spi.inject.FlashProvider
+satori.jersey.spi.readers.BeanCollectionReader

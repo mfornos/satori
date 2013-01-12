@@ -1,0 +1,20 @@
+classes:
+    - class.one
+    - class.two
+
+development:
+    # Database
+    dbconnectionurl: jdbc:mysql://localhost:3306/mydevelopmentdb
+    dbuser: dbuserdevelopment
+    dbpass: dbpasswddevelopment
+
+empty:
+
+num: TWO
+
+production:
+    # Database
+    dbconnectionurl: jdbc:mysql://localhost:3306/myproductiondb
+    dbuser: dbuserproduction
+    dbpass: dbpasswdproduction
+    

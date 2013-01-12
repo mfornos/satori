@@ -1,0 +1,27 @@
+{{#partial "title"}}Bulk Delete Events{{/partial}}
+
+{{#partial "content"}}
+
+<div class="row">
+  <div class="span2">
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href={{@"/eapp/events/form"}}>Bulk edit</a></li>
+      <li class="active"><a href="#">Bulk Delete</a></li>
+    </ul>
+  </div>
+  <div class="span6">  
+{{> eapp/layout/flash}}
+{{#form "/eapp/events/delete"}}
+  {{#for .}}
+    {{checkbox name="id" label=title value=id appendId=@index}}
+  {{/for}}    
+  <div class="form-actions">
+      <button type="submit" class="btn btn-primary confirm">Delete Selected</button>
+      <a href={{@"/eapp"}} class="btn">Cancel</a>
+  </div>
+{{/form}}
+</div>
+</div>
+
+{{/partial}}
+{{> eapp/layout/base}}

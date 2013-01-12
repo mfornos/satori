@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{#block "title"}}{{/block}}</title>
+    <meta charset="utf-8">
+    <script>
+      $(function() {
+        var Modals = new ModalViews();                
+        {{#block "goodness"}}
+          // put all your jQuery goodness here.
+        {{/block}}
+      });
+    </script>
+  </head>
+  <body>
+    <h1>{{#block "title"}}{{/block}}</h1>
+    {{#block "content"}}{{/block}}
+  </body>
+</html>

@@ -1,0 +1,23 @@
+renderers:
+    - satori.view.HandlebarsRenderer
+    
+environment: development
+
+development:
+
+    #handlebars.delimiter.start: {{
+    #handlebars.delimiter.end: }}
+    #handlebars.templates.path: /views
+    #handlebars.expose.pseudo.vars: false
+    #handlebars.default.bundle.base: i18n.messages
+    #handlebars.cache.spec: expireAfterWrite=1s
+    
+production:
+
+    #handlebars.delimiter.start: {{
+    #handlebars.delimiter.end: }}
+    #handlebars.templates.path: /views
+    #handlebars.expose.pseudo.vars: false
+    #handlebars.default.bundle.base: i18n.messages
+    handlebars.cache.spec: expireAfterWrite=5h
+    

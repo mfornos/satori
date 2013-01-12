@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>World Facts</title>
+  {{> metro/imports}}
+</head>
+
+<body>
+<div id="wfb-app">
+<div id="search">
+{{#form "/metro" method="GET"}}
+  {{input name="q" class="large" value=query placeholder="Search... (Ex: china, canada)" autofocus="autofocus"}}
+{{/form}}
+</div>
+
+<div id="chart_div" style="width: 100%; height: 250px;"></div>
+<div id="land">
+<div id="page-content">
+
+<table>
+<thead>
+<tr><th align="left">#</th><th class="right">Labor</th><th class="right">Inflation</th><th class="right">Ext.Debt</th></tr>
+</thead>
+<tbody>
+{{#for .}}
+  <tr class="{{@even}}">
+     <td><a class="fancy fancybox.ajax" rel="gallery" href={{@"/metro/card/{id}" id}}>{{id}}</a></td><td class="right">{{laborForce}}</td><td class="right">{{inflationRate}}</td><td class="right">{{externalDebt}}</td>
+  </tr>
+{{/for}}
+</tbody>
+</table>
+
+<script id="map-data">
+$(function () {
+data = [
+  ['Country', 'Labor Force']
+  {{#.}}
+  ,['{{id}}', {{laborForce}}]
+  {{/.}}
+];
+});
+</script>
+
+</div></div>
+<div id="pagination-holder"></div>
+</div>
+
+<footer>
+  <div id="instructions">
+    <a href={{@"/"}}>&#8629; Back to the examples</a>
+  </div>
+</footer>
+
+</body>
+</html>

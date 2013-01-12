@@ -1,0 +1,24 @@
+    
+{{#form "/signin" method="POST" id="loginForm"}}
+  {{#fieldset}}
+    {{#if errors.hasSimpleErrors}} <div class="alert alert-error">{{msg errors.simpleError}}</div> {{/if}}
+    {{#group label="username" error=errors.username}}
+      {{input name="username" value=username help=errors.username.message autofocus="autofocus"}}
+    {{/group}}
+    {{#group label="password" error=errors.password}}
+       {{input type="password" name="password" help=errors.password.message}}
+    {{/group}}
+    {{#group}}            
+       {{checkbox name="rememberMe" label="Remember me" checked=rememberMe}}
+    {{/group}}
+    <div class="form-actions">
+       <button type="submit" class="btn btn-primary" id="login">Sign in</button>
+    </div>
+  {{/fieldset}}
+{{/form}}
+
+<script>
+  $(function() {
+    app.initSignin({{success}});
+  });
+</script>

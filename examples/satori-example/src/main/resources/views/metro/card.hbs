@@ -1,0 +1,41 @@
+
+<div id="card">
+<div id="head">
+<h1 class="title">{{id}}</h1>
+<div class="country">
+{{{country}}}
+</div>
+<div class="metrics">
+<span class="mname"><span class="label">Inflation rate:</span>{{inflationRate}}</span>
+<span class="mname"><span class="label">External debt:</span>{{externalDebt}}</span>
+<span class="mname"><span class="label">Labor force:</span>{{laborForce}}</span>
+</div>
+</div>
+<div id="body">
+{{#if constitution}}
+<dl><dt>Constitution</dt><dd>{{constitution}}</dd></dl>
+{{/if}}
+{{#if economy}}
+<dl><dt>Economy</dt><dd>{{economy}}</dd></dl>
+{{/if}}
+{{#if politicalParties}}
+<dl><dt>Political Parties</dt><dd>{{politicalParties}}</dd></dl>
+{{/if}}
+{{#if politicalPressureGroups}}
+<dl><dt>Political Pressure Groups</dt><dd>{{politicalPressureGroups}}</dd></dl>
+{{/if}}
+{{#if internationalOrgPart}}
+<dl><dt>International Organizations Participation</dt><dd>{{internationalOrgPart}}</dd></dl>
+{{/if}}
+{{#if judicialBranch}}
+<dl><dt>Judicial Branch</dt><dd>{{judicialBranch}}</dd></dl>
+{{/if}}
+{{#if disputes}}
+<dl><dt>Disputes</dt><dd>{{disputes}}</dd></dl>
+{{/if}}
+{{#if militaryBranches}}
+<dl><dt>Military Branches</dt><dd>{{militaryBranches}}</dd></dl>
+{{/if}}
+</div>
+</div>
+

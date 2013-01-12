@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Multiselect JQuery Test</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/ui.multiselect.css" type="text/css" media="all"/>
+    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script> 
+    <script>window.jQuery || document.write("<script src='js/libs/jquery-1.8.0.min.js'><\/script>")</script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+    <script src="js/libs/ui.multiselect.js"></script>
+    <script>
+        $(function(){
+    	  // choose either the full version
+    	  $(".multiselect").multiselect();
+    	  // or disable some features
+    	  //$(".multiselect").multiselect({sortable: false, searchable: false});
+    	});
+    </script>
+    
+</head>
+<body>
+  <select id="countries" class="multiselect" multiple="multiple" name="countries[]">
+  <option value="AFG">Afghanistan</option>
+  <option value="ALB">Albania</option>
+  <option value="DZA">Algeria</option>
+  <option value="AND">Andorra</option>
+  <option value="ARG">Argentina</option>
+  <option value="ARM">Armenia</option>
+  <option value="ABW">Aruba</option>
+  <option value="AUS">Australia</option>
+  <option value="AUT" selected="selected">Austria</option>
+  </select>
+</body>
+</html>

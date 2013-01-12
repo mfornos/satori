@@ -1,0 +1,253 @@
+* {
+	margin: 0;
+}
+html, body {
+	background-color: #666;
+}
+
+.container {
+	min-height: 400px;
+}
+
+#main-samp {
+	width: 100%;
+	background-color: #FFF;
+	border-top: 5px solid #992233;
+	color: #333;
+	line-height: 1.5em;
+	font-size: 1.15em;
+	letter-spacing: 0.05em;
+}
+
+#main-samp .wrap {
+	min-width: 700px;
+	width: 700px;
+	margin: 30px auto;
+}
+
+#main-samp .wrap .tagline {
+	margin-bottom: 60px;
+}
+
+#main-samp .wrap .section {
+	position: relative;
+	display: block;
+	clear: both;
+	overflow: hidden;
+	margin: 30px 0;
+}
+
+#main-samp .wrap .section h1 {
+	width: 210px;
+	text-align: right;
+	line-height: 1.05em;
+}
+
+#main-samp .wrap .section div {
+	left: 230px;
+	top: 7px;
+	position: absolute;
+}
+
+#main-samp a {
+	text-decoration: none;
+	color: #4183C4;
+}
+#main-samp a:hover {
+	text-decoration: underline;
+}
+
+i {
+	text-decoration: none;
+	font-style: inherit;
+}
+
+i span {
+	display: inline;
+	position: relative;
+	top: -2px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	letter-spacing: 0.1em;
+	margin-left: 5px;
+}
+
+.add form {
+	width: 600px;
+}
+
+.add {
+	width: 600px;
+	margin: 30px auto;
+}
+
+.add input[type="text"] {
+	width: 590px;
+	height: 40px;
+	padding-left: 15px;
+	margin-bottom: 6px;
+}
+
+.add button {
+	margin: 3px;
+	width: 150px;
+}
+
+.points {
+	border: 1px solid #333;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	padding: 15px 0;
+	width: 600px;
+	margin: 15px auto;
+	background-color: #F8FFEC;
+	position: relative;
+	box-shadow: 0px 2px 4px #222;
+	-moz-box-shadow: 0px 2px 4px #222;
+    -webkit-box-shadow: 0px 2px 4px #222;
+}
+
+.line {
+	border-bottom: 1px solid #CCC;
+}
+
+.point {
+	background-color: #FFF;
+	position: relative;
+	overflow: hidden;
+	display: block;
+	clear: both;
+}
+
+.point .editable {
+	padding: 20px 20px;
+}
+
+.point .editable:hover {
+	cursor: pointer;
+	background-color: #F8F8F3;
+	color: #222;
+}
+
+.point form {
+	margin: 0;
+}
+
+form.light input[type="text"] {
+	display: block;
+}
+
+.point form.light input {
+	margin: -17px 3px 4px -17px;
+	height: 50px !important;
+	width: 588px !important;
+	display: block;
+}
+
+.point form.light input {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    padding: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    padding-left: 5px;
+}
+
+.point form.light button {
+	width: 300px;
+	height: 65px;
+	margin-bottom: -20px;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+.point form.light button[type="submit"] {
+	margin: 0 0 -20px -20px;
+}
+
+.point form.light button:focus,.point form.light button:active {
+	box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.date {
+	color: #333;
+	margin-left: 15px;
+}
+
+.date img {
+	vertical-align: middle;
+	padding: 2px;
+	border: 1px solid #ccc;
+	max-height: 32px;
+	max-width: 32px;
+	margin-bottom: 10px;
+}
+
+.date i {
+	font-size: 32px;
+	line-height: 1em;
+}
+
+.date i span,.date span {
+	font-family: "Helvetica neue ultra-light", Helvetica;
+	font-size: 14px;
+	display: inline;
+	position: relative;
+	margin-left: 8px;
+	font-weight: 200;
+	letter-spacing: 0.1em;
+}
+
+.date span {
+	top: -5px;
+}
+
+.date i span {
+	top: -12px;
+}
+
+.points:hover .delete {
+	visibility: visible;
+}
+
+.delete {
+	visibility: hidden;
+	width: 32px;
+	height: 32px;
+	border: 0;
+	background: transparent;
+	box-shadow: none;
+	position: absolute;
+	right: 8px;
+	top: 15px;
+	font-size: 24px;
+	color: #333;
+}
+
+.delete:hover {
+	color: red;
+	cursor: pointer;
+}
+
+footer {
+	background-color: #222;
+	margin-top: 150px;
+	height: 150px;
+	padding: 25px 25px 50px 25px;
+	color: #888;
+	line-height: 1.5em;
+}
+
+footer a {
+	color: #CCC;
+	text-decoration: none;
+}
+
+footer a:hover {
+	color: #FFF;
+}
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Satori Todos</title>
+  <link rel="stylesheet" href={{@"/assets/styles/todos/todos.css"}}/>
+</head>
+
+<body>
+
+  <div id="todoapp">
+  {{#flow}}
+    <div id="topnav">
+      {{#user}}
+        <a href={{@"/logout"}} id="logout-button"><i class="icon-user"></i> <span>Logout</span> {{principal}}</a>
+        {{else}}
+        <a href="#" id="login-button"><i class="icon-user"></i> Login</a>
+      {{/user}}
+    </div>
+    
+    <header>
+      <h1>Todos</h1>
+      <input id="new-todo" type="text" placeholder="{{msg "What needs to be done?"}}">
+    </header>
+
+    <section id="main">
+      <input id="toggle-all" type="checkbox">
+      <label for="toggle-all">Mark all as complete</label>
+      <ul id="todo-list"></ul>
+    </section>
+
+    <footer>
+      <a id="clear-completed">Clear completed</a>
+      <div id="todo-count"></div>
+    </footer>
+    
+  </div>
+  
+  <div id="instructions">
+    Double-click to edit a todo.
+    <br /><br />
+    <a href={{@"/"}}>&#8629; Back to the examples</a>
+  </div>
+  
+  <div id="credits">
+    Created by
+    <br />
+    <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.
+    <br />Rewritten by <a href="http://addyosmani.github.com/todomvc">TodoMVC</a>
+    <br />Adapted to <strong>&#9776; Satori + Atmosphere</strong>.
+  </div>
+  {{/flow}}
+  
+  <script type="text/javascript" src={{@"assets/js/libs/json2.js"}}></script>
+  <script type="text/javascript" src={{@"assets/js/libs/jquery.min.js"}}></script>
+  <script type="text/javascript" src={{@"assets/js/libs/jquery.atmosphere.js"}}></script>
+  <script type="text/javascript" src={{@"assets/js/libs/underscore.js"}}></script>
+  <script type="text/javascript" src={{@"assets/js/libs/backbone.js"}}></script>
+  <script type="text/javascript" src={{@"assets/js/libs/backbone.modal.js"}}></script>
+  <script>
+    var ctx = {{@"/atmosphere/todos/"}};
+  </script>
+  <script type="text/javascript" src={{@"assets/js/todos/todos.js"}}></script>
+
+  <!-- Templates -->
+
+  <script type="text/template" id="item-template">
+    <div class="view">
+      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+      <label><%= title %></label>
+      <a class="destroy"></a>
+    </div>
+    <input class="edit" type="text" value="<%= title %>" />
+  </script>
+
+  <script type="text/template" id="stats-template">
+    <% if (done) { %>
+      <a id="clear-completed">{{msg "Clear"}} <%= done %> <%= done == 1 ? '{{msg "completed item"}}' : '{{msg "completed items"}}' %></a>
+    <% } %>
+    <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? '{{msg "item left"}}' : '{{msg "items left"}}' %></div>
+  </script>
+  
+  <script type="text/template" id="login-template">
+    <div id="signin">
+    <form>
+        <div id="errors"></div>
+        {{#fieldset}}
+          {{#group label="username"}}
+            {{input name="username"}}
+          {{/group}}
+          {{#group label="password"}}
+            {{input type="password" name="password"}}
+          {{/group}}
+          {{#group}}            
+            {{checkbox name="rememberMe" label="Remember me"}}
+          {{/group}}
+        {{/fieldset}}
+        <div class="form-actions">
+          <button type="submit" class="btn btn-large btn-primary">{{msg "Sign in"}}</button>
+        </div>
+    </form>
+    </div>
+  </script>
+
+  </body>
+</html>

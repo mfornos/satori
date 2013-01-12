@@ -1,0 +1,32 @@
+{{#partial "title"}}Reservation Dialog{{/partial}} 
+{{#partial "goodness"}}
+  Modals.reservation.show({ completed: '{{success}}', error: '{{errors.empty}}' });
+{{/partial}} 
+{{#partial "content"}}
+    <h1>Reservation Dialog</h1>
+    {{#form "/eapp/reservation" method="POST" class="ajax form-horizontal"}}
+      {{#fieldset}}
+        {{#group label="name" error=errors.name}}
+          {{input name="name" value=name help=errors.name.message placeholder="a fake and crazy name" autofocus="autofocus"}}
+        {{/group}}
+        {{#group label="email" error=errors.email}}
+          {{input name="email" value=email help=errors.email.message placeholder="you@domain.com"}}
+        {{/group}}
+        {{#group label="type" error=errors.type}}
+          {{radioGroup name="type" value=type help=errors.type.message}}
+        {{/group}}
+        {{#group label="event" error=errors.event}}
+          {{select name="event" value=eventId options=events help=errors.event.message}}
+        {{/group}}
+      {{/fieldset}}
+      
+      {{input type="hidden" name="id" value=id}}
+      
+      <div class="form-actions" style="overflow:hidden;">
+        <a href="#" class="btn close-dialog" tabindex="10">Close</a>
+        <button type="submit" class="btn btn-primary" tabindex="11">Save changes</button>
+      </div>
+    {{/form}}
+{{/partial}}
+
+{{> eapp/layout/modal}}

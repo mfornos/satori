@@ -1,0 +1,27 @@
+{{#partial "title"}}{{msg "Sign in"}}{{/partial}} 
+{{#partial "goodness"}}
+  Modals.signin.show({ completed: '{{success}}', error: '{{errors.empty}}' });
+{{/partial}} 
+{{#partial "content"}}
+  {{#flow}}
+    {{#if errors.hasSimpleErrors}} <div class="alert alert-error">{{errors.simpleError}}</div> {{/if}}
+    {{#form "/signin" method="POST" class="ajax form-horizontal dark" style="margin:0;"}}
+        {{#fieldset}}
+          {{#group label="username" error=errors.username}}
+            {{input name="username" value=username help=errors.username.message autofocus="autofocus"}}
+          {{/group}}
+          {{#group label="password" error=errors.password}}
+            {{input type="password" name="password" help=errors.password.message}}
+          {{/group}}
+          {{#group}}            
+            {{checkbox name="rememberMe" label="Remember me" checked=rememberMe}}
+          {{/group}}
+        {{/fieldset}}
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" tabindex="10">Sign in</button>
+        </div>
+    {{/form}}
+  {{/flow}}
+{{/partial}}
+
+{{> eapp/layout/modal}}
