@@ -1,4 +1,4 @@
-# Satori
+# ☰ Satori
 
 TBD
 
@@ -40,9 +40,9 @@ Features
 * Caching (Cache-control and ETags)
 * And more cool things!
 
-![Screenshot 0](http://mfornos.github.com/shots/events02s.png)
-![Screenshot 1](http://mfornos.github.com/shots/events01s.png)
-![Screenshot 2](http://mfornos.github.com/shots/events00s.png)
+![Screenshot 0](http://mfornos.github.com/satori/shots/event02s.png)
+![Screenshot 1](http://mfornos.github.com/satori/shots/event01s.png)
+![Screenshot 2](http://mfornos.github.com/satori/shots/event00s.png)
 
 
 __Todos__
@@ -56,14 +56,14 @@ Features
 * Underscore.js+Backbone.js
 * Atmosphere Pub/Sub
 
-![Screenshot 0](http://mfornos.github.com/shots/todos00s.png)
+![Screenshot 0](http://mfornos.github.com/satori/shots/todos00s.png)
 
 __Metro__
 
 CIA fact book search and world map visualization.
 
-![Screenshot 0](http://mfornos.github.com/shots/metro00s.png)
-![Screenshot 1](http://mfornos.github.com/shots/metro01s.png)
+![Screenshot 0](http://mfornos.github.com/satori/shots/metro00s.png)
+![Screenshot 1](http://mfornos.github.com/satori/shots/metro01s.png)
 
 ### Scalate webapps
 
@@ -77,7 +77,7 @@ Features
 * JQuery
 * File upload
 
-![Screenshot 0](http://mfornos.github.com/shots/track00s.png)
+![Screenshot 0](http://mfornos.github.com/satori/shots/track00s.png)
 
 ### Resteasy webapps
 
@@ -93,7 +93,7 @@ Features
 * BVal validation
 * Tinkerpop Orient GraphDB
 
-![Screenshot 0](http://mfornos.github.com/shots/monsters00s.png)
+![Screenshot 0](http://mfornos.github.com/satori/shots/monsters00s.png)
 
 
 ## Running the examples
