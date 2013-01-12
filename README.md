@@ -40,9 +40,9 @@ Features
 * Caching (Cache-control and ETags)
 * And more cool things!
 
-![Screenshot 0](http://mfornos.github.com/satori/shots/event02s.png)
-![Screenshot 1](http://mfornos.github.com/satori/shots/event01s.png)
-![Screenshot 2](http://mfornos.github.com/satori/shots/event00s.png)
+[![Screenshot 0](http://mfornos.github.com/satori/shots/event02s.png)](http://mfornos.github.com/satori/shots/event02.png)
+[![Screenshot 1](http://mfornos.github.com/satori/shots/event00s.png)](http://mfornos.github.com/satori/shots/event00.png)
+[![Screenshot 2](http://mfornos.github.com/satori/shots/event01s.png)](http://mfornos.github.com/satori/shots/event01.png)
 
 
 __Todos__
@@ -56,14 +56,14 @@ Features
 * Underscore.js+Backbone.js
 * Atmosphere Pub/Sub
 
-![Screenshot 0](http://mfornos.github.com/satori/shots/todos00s.png)
+[![Screenshot 0](http://mfornos.github.com/satori/shots/todos00s.png)](http://mfornos.github.com/satori/shots/todos00.png)
 
 __Metro__
 
 CIA fact book search and world map visualization.
 
-![Screenshot 0](http://mfornos.github.com/satori/shots/metro00s.png)
-![Screenshot 1](http://mfornos.github.com/satori/shots/metro01s.png)
+[![Screenshot 0](http://mfornos.github.com/satori/shots/metro00s.png)](http://mfornos.github.com/satori/shots/metro00.png)
+[![Screenshot 1](http://mfornos.github.com/satori/shots/metro01s.png)](http://mfornos.github.com/satori/shots/metro01.png)
 
 ### Scalate webapps
 
@@ -77,7 +77,7 @@ Features
 * JQuery
 * File upload
 
-![Screenshot 0](http://mfornos.github.com/satori/shots/track00s.png)
+[![Screenshot 0](http://mfornos.github.com/satori/shots/track00s.png)](http://mfornos.github.com/satori/shots/track00.png)
 
 ### Resteasy webapps
 
@@ -91,9 +91,9 @@ Features
 * Internationalization
 * Handlebars templating
 * BVal validation
-* Tinkerpop Orient GraphDB
+* TinkerPop Orient GraphDB
 
-![Screenshot 0](http://mfornos.github.com/satori/shots/monsters00s.png)
+[![Screenshot 0](http://mfornos.github.com/satori/shots/monsters00s.png)](http://mfornos.github.com/satori/shots/monsters00.png)
 
 
 ## Running the examples
