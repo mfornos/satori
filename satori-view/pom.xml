@@ -15,6 +15,11 @@
 			<artifactId>satori-i18n</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>com.github.mfornos</groupId>
+            <artifactId>satori-csrf</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-server</artifactId>

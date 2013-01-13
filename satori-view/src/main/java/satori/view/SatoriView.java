@@ -5,5 +5,7 @@ public interface SatoriView {
     String getTemplateName();
 
     Object getModel();
+
+    String getCsrfToken();
     
 }

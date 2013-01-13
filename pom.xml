@@ -13,6 +13,7 @@
 		<servlet-api.version>3.0.1</servlet-api.version>
 		<jaxrs-api.version>2.0-m09</jaxrs-api.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- TODO: set source version 1.6 -->
 	</properties>
 	<modules>
 		<module>satori-core</module>
@@ -28,6 +29,7 @@
 		<module>examples</module>
 		<module>jersey</module>
 		<module>resteasy</module>
+		<module>satori-csrf</module>
 	</modules>
 	<dependencies>
 		<dependency>

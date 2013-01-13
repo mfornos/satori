@@ -21,12 +21,13 @@ import satori.hbs.hooks.HandlebarsHook;
 import satori.hbs.hooks.RequestHook;
 import satori.i18n.Translation;
 import satori.i18n.locale.LocaleSource;
+import satori.security.CsrfHelper;
 import satori.utils.PathUtils;
 import satori.view.providers.ViewContext;
 import satori.view.providers.ViewRenderer;
 
-import com.github.jknack.handlebars.Context.Builder;
 import com.github.jknack.handlebars.Context;
+import com.github.jknack.handlebars.Context.Builder;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.TemplateLoader;
@@ -191,9 +192,12 @@ public class HandlebarsRenderer implements ViewRenderer {
         }
 
         Builder model = vm != null && Builder.class.isAssignableFrom(vm.getClass()) ? (Builder) vm : Context.newBuilder(vm);
+        
         model.combine("locale", LocaleSource.getCurrentLocale())
-                .combine("securityContext", context.securityContext).combine("uriInfo", context.uriInfo)
-                .combine("nil", null);
+             .combine("securityContext", context.securityContext)
+             .combine("uriInfo", context.uriInfo)
+             .combine(CsrfHelper.CSRF_TOKEN_PARAM, view.getCsrfToken())
+             .combine("nil", null);
 
         if (!(map == null || map.isEmpty())) {
             model.combine(map);

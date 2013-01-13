@@ -17,5 +17,6 @@
 	<modules>
 		<module>satori-jersey</module>
 		<module>satori-jersey-shiro</module>
+		<module>satori-jersey-csrf</module>
 	</modules>
 </project>

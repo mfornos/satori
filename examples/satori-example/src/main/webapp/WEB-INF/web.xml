@@ -42,7 +42,7 @@
     </init-param>
     <init-param>
       <param-name>com.sun.jersey.spi.container.ResourceFilters</param-name>
-      <param-value>satori.jersey.spi.filter.ShiroResourceFilterFactory</param-value>
+      <param-value>satori.jersey.spi.filter.ShiroResourceFilterFactory;satori.jersey.spi.filter.CsrfFilterFactory</param-value>
     </init-param>
   </filter>
   <filter-mapping>

@@ -763,6 +763,14 @@
 			dataType: "html",
 			beforeSend: beforeSendCallback, 
 			complete: function( jqXHR, status ) {
+				/* Set cookies
+				console.log(jqXHR.getAllResponseHeaders());
+				var c = jqXHR.getResponseHeader('Set-Cookie');
+				if(c!=null) {
+				  console.log(c);
+				  $.cookie(c.split('=')[0],c.split('=')[1]);
+				}*/
+		        
 				if ( completeCallback ) {
 					self.each( completeCallback, response || [ jqXHR.responseText, status, jqXHR ] );
 				}

@@ -34,7 +34,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.mfornos</groupId>
-			<artifactId>satori-jersey</artifactId>
+			<artifactId>satori-jersey-csrf</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

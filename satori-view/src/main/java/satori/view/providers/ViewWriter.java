@@ -41,7 +41,7 @@ public class ViewWriter implements MessageBodyWriter<SatoriView> {
     private static final List<ViewRenderer> renderers = new ArrayList<ViewRenderer>();
 
     @Context private HttpServletRequest request;
-
+    
     @Context private HttpServletResponse response;
 
     @Context private UriInfo uriInfo;
@@ -87,8 +87,7 @@ public class ViewWriter implements MessageBodyWriter<SatoriView> {
 
         for (ViewRenderer renderer : renderers) {
             if (renderer.accepts(view)) {
-                renderer.render(view,
-                        new ViewContext(request, response, uriInfo, securityContext, headers, annotations), out);
+                renderer.render(view, createViewContext(annotations), out);
                 break;
             }
         }
@@ -109,6 +108,12 @@ public class ViewWriter implements MessageBodyWriter<SatoriView> {
             Constructor<?> ctor = rendererClass.getConstructor(Configuration.class, ServletContext.class);
             renderers.add((ViewRenderer) ctor.newInstance(config, servletContext));
         }
+
+    }
+
+    private ViewContext createViewContext(Annotation[] annotations) {
+
+        return new ViewContext(request, response, uriInfo, securityContext, headers, annotations);
 
     }
 

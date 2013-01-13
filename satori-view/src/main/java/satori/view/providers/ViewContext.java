@@ -11,9 +11,9 @@ import javax.ws.rs.core.UriInfo;
 public class ViewContext {
 
     public final HttpServletRequest request;
-    
+
     public final HttpServletResponse response;
-    
+
     public final UriInfo uriInfo;
 
     public final SecurityContext securityContext;
@@ -22,16 +22,16 @@ public class ViewContext {
 
     public final Annotation[] annotations;
 
-    public ViewContext(HttpServletRequest request, HttpServletResponse response, UriInfo uriInfo, SecurityContext securityContext,
-            HttpHeaders headers, Annotation[] annotations) {
-        
+    public ViewContext(HttpServletRequest request, HttpServletResponse response, UriInfo uriInfo,
+            SecurityContext securityContext, HttpHeaders headers, Annotation[] annotations) {
+
         this.request = request;
+        this.response = response;
         this.uriInfo = uriInfo;
         this.securityContext = securityContext;
         this.headers = headers;
         this.annotations = annotations;
-        this.response = response;
-        
+
     }
 
 }

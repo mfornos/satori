@@ -21,6 +21,7 @@ import models.events.Reservation;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.authz.annotation.RequiresUser;
 
+import satori.security.CsrfGuard;
 import satori.validation.BeanValidator;
 import satori.validation.Errors;
 import satori.view.View;
@@ -39,8 +40,8 @@ public class Events {
     @Context private Flash flash;
 
     @GET
-    @Path("about")
     @Timed
+    @Path("about")
     public View about() {
 
         return view();
@@ -48,8 +49,8 @@ public class Events {
     }
 
     @GET
-    @Path("event/{id}")
     @Timed
+    @Path("event/{id}")
     public View event(@PathParam("id") Integer id) {
 
         return view(DB.getEvent(id)).add("events", DB.events());
@@ -57,19 +58,19 @@ public class Events {
     }
 
     @GET
+    @Timed
     @RequiresUser
     @Path("event/form/{id:\\d*}")
-    @Timed
-    public View formEvent(@PathParam("id") Integer id) {
+    public Response formEvent(@PathParam("id") Integer id) {
 
-        return view(id == null ? DB.EMPTY_EVENT : DB.getEvent(id));
+        return view(id == null ? DB.EMPTY_EVENT : DB.getEvent(id)).csrfToken().build();
 
     }
 
     @GET
+    @Timed
     @RequiresUser
     @Path("reservation/form/{id:\\d*}")
-    @Timed
     public View formReservation(@PathParam("id") Integer id) {
 
         return view(id == null ? DB.EMPTY_RESERV : DB.getReservation(id));
@@ -77,9 +78,9 @@ public class Events {
     }
 
     @GET
+    @Timed
     @RequiresUser
     @Path("reservation/form/event/{id:\\d*}")
-    @Timed
     public View reservationForEvent(@PathParam("id") Integer eventId) {
 
         return view("/eapp/form/reservation", eventId == null ? DB.EMPTY_RESERV : new Reservation(eventId));
@@ -95,9 +96,9 @@ public class Events {
     }
 
     @GET
+    @Timed
     @Path("events/form")
     @RequiresRoles("admin")
-    @Timed
     public View formBulkEvents() {
 
         return view(DB.events()).add("flash", flash);
@@ -105,9 +106,9 @@ public class Events {
     }
 
     @GET
+    @Timed
     @Path("events/form/delete")
     @RequiresRoles("admin")
-    @Timed
     public View formBulkDeleteEvents() {
 
         return view(DB.events()).add("flash", flash);
@@ -115,9 +116,9 @@ public class Events {
     }
 
     @POST
+    @Timed
     @Path("events/delete")
     @RequiresRoles("admin")
-    @Timed
     public Response postDeleteEvents(@FormParam("id") List<Integer> ids) {
 
         DB.removeEvents(ids);
@@ -127,9 +128,9 @@ public class Events {
     }
 
     @POST
+    @Timed
     @Path("events/form")
     @RequiresRoles("admin")
-    @Timed
     public Response postFormEvents(@InjectParam Collection<Event> events) {
 
         DB.merge(events);
@@ -139,8 +140,8 @@ public class Events {
     }
 
     @GET
-    @Path("sample")
     @Timed
+    @Path("sample")
     public Response etag(@Context Request request) {
 
         return view("/eapp/home", DB.events()).tag(request).build();
@@ -148,9 +149,9 @@ public class Events {
     }
 
     @GET
+    @Timed
     @Path("event/delete/{id}")
     @RequiresRoles("admin")
-    @Timed
     public Response deleteEvent(@PathParam("id") Integer id) {
 
         DB.removeEvent(id);
@@ -159,9 +160,10 @@ public class Events {
     }
 
     @POST
+    @Timed
+    @CsrfGuard
     @Path("event")
     @RequiresRoles("admin")
-    @Timed
     public View postFormEvent(@InjectParam Event model) {
 
         Errors<Event> errors = BeanValidator.validate(model);
@@ -175,9 +177,9 @@ public class Events {
     }
 
     @POST
+    @Timed
     @RequiresUser
     @Path("reservation")
-    @Timed
     public View postFormReservation(@InjectParam Reservation model) {
 
         Errors<Reservation> errors = BeanValidator.validate(model);

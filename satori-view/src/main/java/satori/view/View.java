@@ -3,11 +3,14 @@ package satori.view;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.EntityTag;
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
+import satori.security.CsrfHelper;
 import satori.utils.MurmurHash;
 
 public class View implements SatoriView {
@@ -15,6 +18,8 @@ public class View implements SatoriView {
     private final Map<String, Object> map = new HashMap<String, Object>();
 
     private final String templateName;
+
+    private String csrfToken;
 
     private Object model;
 
@@ -47,6 +52,20 @@ public class View implements SatoriView {
         return Response.ok(this);
     }
 
+    public ResponseBuilder csrfToken() {
+
+        this.csrfToken = CsrfHelper.newCsrfToken();
+        return Response.ok(this).cookie(new NewCookie(CsrfHelper.CSRF_TOKEN_KEY, csrfToken, "/", null, 1, null, -1, false));
+
+    }
+
+    @Override
+    public String getCsrfToken() {
+
+        return csrfToken;
+
+    }
+
     public Map<String, Object> getMap() {
         return map;
     }
@@ -59,6 +78,11 @@ public class View implements SatoriView {
             map.put("model", model);
             return map;
         }
+    }
+
+    @Override
+    public String getTemplateName() {
+        return templateName;
     }
 
     public boolean hasMap() {
@@ -88,11 +112,6 @@ public class View implements SatoriView {
         long hash = MurmurHash.hash64(getTemplateName() + (model != null ? model.hashCode() : 0));
         return EntityTag.valueOf(String.format("\"%s\"", hash));
 
-    }
-
-    @Override
-    public String getTemplateName() {
-        return templateName;
     }
 
 }

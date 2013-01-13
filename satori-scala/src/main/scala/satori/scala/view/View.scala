@@ -2,13 +2,15 @@ package satori.scala.view
 import satori.utils.ResponseUtils._
 import satori.view.SatoriView
 
-class View(_templateName: String = resolveName(), _model: Any = None) extends SatoriView {
+class View(_templateName: String = resolveName(), _model: Any = None, _csrfToken: String = null) extends SatoriView {
   
   def model = _model
   def templateName = _templateName
+  def csrfToken = _csrfToken
   
   override def getTemplateName() = templateName
   override def getModel() = model.asInstanceOf[AnyRef]
+  override def getCsrfToken() = csrfToken
   
 }
 
