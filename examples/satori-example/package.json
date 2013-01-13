@@ -1,0 +1,8 @@
+{
+  "name": "satori-example",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.3.9",
+    "grunt-css": ">0.0.0"
+  }
+}
