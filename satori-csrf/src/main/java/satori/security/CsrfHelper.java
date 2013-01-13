@@ -10,11 +10,11 @@ public class CsrfHelper {
 
     private static final int TOKEN_LENGTH = 32;
 
-    private static final CsrfHelper instance = new CsrfHelper();
+    private static final CsrfHelper _ = new CsrfHelper();
 
     public static String newCsrfToken() {
 
-        return instance.newToken();
+        return _.newToken();
 
     }
 

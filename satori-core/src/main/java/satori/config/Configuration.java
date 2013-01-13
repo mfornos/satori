@@ -16,6 +16,8 @@ public class Configuration {
 
     private static final Logger log = LoggerFactory.getLogger(Configuration.class);
 
+    private static Map<String, Configuration> yamlCfgs = new HashMap<String, Configuration>();
+
     public static Configuration from(Map<String, Object> properties) {
 
         return new Configuration(properties);
@@ -24,7 +26,19 @@ public class Configuration {
 
     public static Configuration from(String yamlFile) {
 
-        return new Configuration(yamlToMap(yamlFile));
+        if (yamlCfgs.containsKey(yamlFile)) {
+            return yamlCfgs.get(yamlFile);
+        }
+
+        Configuration cfg = new Configuration(yamlToMap(yamlFile));
+        yamlCfgs.put(yamlFile, cfg);
+        return cfg;
+
+    }
+
+    public static Configuration satoriYaml() {
+
+        return from(System.getProperty("satoriConf", "satori.yml"));
 
     }
 
@@ -44,13 +58,13 @@ public class Configuration {
 
     private final Map<String, Object> map;
 
-    public Configuration() {
+    Configuration() {
 
         this.map = new HashMap<String, Object>();
 
     }
 
-    public Configuration(Map<String, Object> map) {
+    Configuration(Map<String, Object> map) {
 
         this.map = map;
 

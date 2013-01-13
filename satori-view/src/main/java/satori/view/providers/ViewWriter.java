@@ -41,7 +41,7 @@ public class ViewWriter implements MessageBodyWriter<SatoriView> {
     private static final List<ViewRenderer> renderers = new ArrayList<ViewRenderer>();
 
     @Context private HttpServletRequest request;
-    
+
     @Context private HttpServletResponse response;
 
     @Context private UriInfo uriInfo;
@@ -56,7 +56,7 @@ public class ViewWriter implements MessageBodyWriter<SatoriView> {
 
     public ViewWriter(@Context ServletContext servletContext) throws Exception {
 
-        this.config = Configuration.from("satori.yml");
+        this.config = Configuration.satoriYaml();
         this.resolver = LocaleResolverFactory.newResolver(config.get(LocaleResolverFactory.LOCALE_RESOLVER_PARAM,
                 DefaultResolver.class.getName()));
 

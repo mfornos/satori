@@ -55,8 +55,7 @@ public class HandlebarsConfiguration {
         this.startDelimiter = envCfg.get(DELIMITER_START_PARAM);
         this.endDelimiter = envCfg.get(DELIMITER_END_PARAM);
         this.hasDelimiters = StringUtils.isNotBlank(startDelimiter) && StringUtils.isNotBlank(endDelimiter);
-        // TODO cambiar a true cuando patch...
-        this.isExposePseudoVariables = envCfg.get(EXPOSE_PSEUDO_VARS_PARAM, false);
+        this.isExposePseudoVariables = envCfg.get(EXPOSE_PSEUDO_VARS_PARAM, true);
         this.defaultBundleBase = envCfg.get(DEFAULT_BUNDLE_BASE_PARAM, Translation.DEFAULT_BUNDLE_BASE_NAME);
         this.localeResolverClassName = envCfg.get(LocaleResolverFactory.LOCALE_RESOLVER_PARAM,
                 DefaultResolver.class.getName());

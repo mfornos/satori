@@ -48,7 +48,7 @@ public class CsrfFilter implements ResourceFilter, ContainerRequestFilter {
 
         String method = request.getMethod();
 
-        if (method.equals("POST")) {
+        if (method.equals("POST") || method.equals("PUT")) {
             Form params = request.getFormParameters();
             return params.getFirst(CsrfHelper.CSRF_TOKEN_PARAM);
         } else if (method.equals("GET")) {

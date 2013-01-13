@@ -1,49 +1,53 @@
 package satori.scala.view
 
 import java.io.OutputStream
-import java.lang.reflect.Type
-import javax.ws.rs.ext.{MessageBodyWriter, Provider}
-import javax.servlet.ServletContext
-import javax.ws.rs.core.{Context, HttpHeaders, MultivaluedMap, MediaType}
-import javax.servlet.http.{HttpServletResponse, HttpServletRequest}
-import java.lang.{String, Class}
-import java.lang.annotation.Annotation
+import java.lang.String
+
+import org.fusesource.scalate.servlet.ServletHelper
+import org.fusesource.scalate.servlet.ServletTemplateEngine
+import org.fusesource.scalate.servlet.TemplateEngineServlet
 import org.fusesource.scalate.support.TemplateFinder
-import org.fusesource.scalate.servlet.{ServletTemplateEngine, ServletHelper, TemplateEngineServlet}
-import org.fusesource.scalate.util.{Log, ResourceNotFoundException, Logging}
-import satori.config.Configuration
-import satori.view.SatoriView
-import satori.view.providers.{ViewRenderer, ViewContext}
+import org.fusesource.scalate.util.Log
+import org.fusesource.scalate.util.ResourceNotFoundException
+
+import ScalateRenderer.debug
+import javax.servlet.ServletContext
+import javax.ws.rs.ext.Provider
 import javax.ws.rs.WebApplicationException
+import satori.config.Configuration
+import satori.security.CsrfHelper
+import satori.view.providers.ViewContext
+import satori.view.providers.ViewRenderer
+import satori.view.SatoriView
 
 object ScalateRenderer extends Log
 
 /**
- * Renders a [[satori.jersey.view.SatoriView]] using the Scalate template engine 
+ * Renders a [[satori.view.SatoriView]] using the Scalate template engine
  *
  */
 @Provider
-class ScalateRenderer(config : Configuration, servletContext : ServletContext) extends ViewRenderer {
+class ScalateRenderer(config: Configuration, servletContext: ServletContext) extends ViewRenderer {
   import ScalateRenderer._
 
   protected var errorUris: List[String] = ServletHelper.errorUris()
-  
+
   val basePath = config.get("scalate.templates.path", "/views")
-  
+
   val engine = ServletTemplateEngine(servletContext)
-  
+
   val finder = new TemplateFinder(engine)
-  
-  def accepts(view: SatoriView ) = {
+
+  def accepts(view: SatoriView) = {
     val template = basePath + view.getTemplateName
     !finder.findTemplate(template).isEmpty
   }
 
   def render(view: SatoriView, context: ViewContext, out: OutputStream): Unit = {
-    
+
     val request = context.request
     val response = context.response
-    
+
     def render(template: String) = TemplateEngineServlet.render(template, engine, servletContext, request, response)
 
     try {
@@ -51,11 +55,12 @@ class ScalateRenderer(config : Configuration, servletContext : ServletContext) e
       finder.findTemplate(template) match {
         case Some(name) =>
           debug("Attempting to generate View for %s", name)
-          
+
           response.setCharacterEncoding("UTF-8")
           request.setAttribute("it", view.getModel)
+          request.setAttribute(CsrfHelper.CSRF_TOKEN_PARAM, view.getCsrfToken)
           render(name)
-          
+
         case _ =>
           throw new ResourceNotFoundException(template)
       }
@@ -86,8 +91,8 @@ class ScalateRenderer(config : Configuration, servletContext : ServletContext) e
           throw new WebApplicationException(e)
         }
     } finally {
-        // Ensure headers are committed
-        out.flush()
+      // Ensure headers are committed
+      out.flush()
     }
   }
 
