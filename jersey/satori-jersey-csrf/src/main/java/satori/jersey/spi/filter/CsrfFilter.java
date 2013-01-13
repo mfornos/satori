@@ -15,6 +15,11 @@ import com.sun.jersey.spi.container.ContainerRequestFilter;
 import com.sun.jersey.spi.container.ContainerResponseFilter;
 import com.sun.jersey.spi.container.ResourceFilter;
 
+/**
+ * CSRF prevention filter. Implements a double submit scheme with a secure token
+ * that changes per request.
+ * 
+ */
 public class CsrfFilter implements ResourceFilter, ContainerRequestFilter {
 
     @Override

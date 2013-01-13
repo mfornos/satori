@@ -11,7 +11,7 @@ import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
 
 /**
- * See http://shiro.apache.org/web.html
+ * @see http://shiro.apache.org/web.html
  * 
  */
 public class ShiroHelpers {

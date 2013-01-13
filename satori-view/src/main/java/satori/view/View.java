@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.ws.rs.core.EntityTag;
-import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
 import satori.crypto.Crypter;
 import satori.security.CsrfHelper;
+import satori.security.SecureCookie;
 import satori.utils.MurmurHash;
 
 /**
@@ -53,8 +53,7 @@ public class View implements SatoriView {
     public ResponseBuilder csrfToken() {
 
         this.csrfToken = CsrfHelper.newCsrfToken();
-        return Response.ok(this).cookie(
-                new NewCookie(CsrfHelper.CSRF_TOKEN_KEY, csrfToken, "/", null, 1, null, -1, false));
+        return Response.ok(this).cookie(new SecureCookie(CsrfHelper.CSRF_TOKEN_KEY, csrfToken, true));
 
     }
 

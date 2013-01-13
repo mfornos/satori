@@ -164,14 +164,14 @@ public class Events {
     @CsrfGuard
     @Path("event")
     @RequiresRoles("admin")
-    public View postFormEvent(@InjectParam Event model) {
+    public Response postFormEvent(@InjectParam Event model) {
 
         Errors<Event> errors = BeanValidator.validate(model);
         if (errors.hasErrors()) {
-            return view(model).with("errors", errors);
+            return view(model).with("errors", errors).csrfToken().build();
         } else {
             DB.save(model);
-            return view(model).with("success", true);
+            return view(model).with("success", true).ok();
         }
 
     }

@@ -92,7 +92,7 @@ class ScalateRenderer(config: Configuration, servletContext: ServletContext) ext
         }
     } finally {
       // Ensure headers are committed
-      out.flush()
+      out.flush
     }
   }
 
