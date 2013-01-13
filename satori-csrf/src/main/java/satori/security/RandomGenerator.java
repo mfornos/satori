@@ -39,9 +39,7 @@ public final class RandomGenerator {
             '8', '9' };
 
     private RandomGenerator() {
-        /**
-         * Intentionally blank to force static usage
-         */
+        // Intentionally blank to force static usage
     }
 
     @Override
