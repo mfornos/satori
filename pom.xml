@@ -22,14 +22,13 @@
 		<module>satori-handlebars-shiro</module>
 		<module>satori-validation</module>
 		<module>satori-i18n</module>
-		<module>satori-jquery</module>
 		<module>satori-scala</module>
 		<module>satori-scalate</module>
 		<module>satori-view</module>
+		<module>satori-csrf</module>
 		<module>examples</module>
 		<module>jersey</module>
 		<module>resteasy</module>
-		<module>satori-csrf</module>
 	</modules>
 	<dependencies>
 		<dependency>
