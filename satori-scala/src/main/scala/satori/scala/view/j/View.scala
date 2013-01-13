@@ -9,7 +9,7 @@ import satori.utils.ResponseUtils._
 class View(path: String = resolveName(), model: Object) extends satori.view.View(path, model) {
     
   def <<(m: Map[String, Any]) =  {
-    super.addAll(asJava(m))
+    super.withAll(asJava(m))
     this
   }
   
@@ -19,7 +19,12 @@ class View(path: String = resolveName(), model: Object) extends satori.view.View
   }
   
   def +(kv: (String, Any)) = {
-    super.add(kv._1, kv._2.asInstanceOf[Object])
+    super.`with`(kv._1, kv._2.asInstanceOf[Object])
+    this
+  }
+  
+  def <~(kv: (String, Any)) = {
+    super.withSecure(kv._1, kv._2.asInstanceOf[Object])
     this
   }
   

@@ -12,7 +12,6 @@
 	<packaging>jar</packaging>
 	<properties>
 		<handlebars.version>0.8.0</handlebars.version>
-		<guava.version>13.0.1</guava.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -41,11 +40,6 @@
 		    <groupId>asm</groupId>
 		    <artifactId>asm</artifactId>
 		    <version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>${guava.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey.jersey-test-framework</groupId>

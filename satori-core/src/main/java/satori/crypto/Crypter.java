@@ -14,6 +14,10 @@ import org.slf4j.LoggerFactory;
 
 import satori.config.Configuration;
 
+/**
+ * Simple and fast AES cipher utility.
+ * 
+ */
 public class Crypter {
 
     private static final String DEFAULT_TRANSFORM = "AES/ECB/PKCS5Padding";
@@ -82,7 +86,8 @@ public class Crypter {
             logger.warn("Please, set the key 'app.password: [16 bytes password]' in satori.yml configuration file.");
         }
 
-        return String.format("%-16s", cfg.get("app.password", "0123456789012345")).substring(0, 16).replace(' ', '_').getBytes();
+        return String.format("%-16s", cfg.get("app.password", "0123456789012345")).substring(0, 16).replace(' ', '_')
+                .getBytes();
     }
 
 }
