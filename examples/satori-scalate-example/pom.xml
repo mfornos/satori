@@ -10,17 +10,23 @@
 	<artifactId>satori-scalate-example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+	
+	<properties>
+	  <scalate.version>1.6.1</scalate.version>
+	  <scala.version>2.10.0</scala.version>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.fusesource.scalate</groupId>
-			<artifactId>scalate-war</artifactId>
-			<version>1.5.3</version>
+			<artifactId>scalate-war_2.10</artifactId>
+			<version>${scalate.version}</version>
 			<type>war</type>
 		</dependency>
 		<dependency>
 			<groupId>org.fusesource.scalate</groupId>
-			<artifactId>scalate-core</artifactId>
-			<version>1.5.3</version>
+			<artifactId>scalate-core_2.10</artifactId>
+			<version>${scalate.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
@@ -125,7 +131,7 @@
 						<arg>-deprecation</arg>
 						<!-- arg>-g:vars</arg debugging info -->
 					</args>
-					<scala-version>2.9.2</scala-version>
+					<scala-version>${scala.version}</scala-version>
 				</configuration>
 			</plugin>
 		</plugins>
