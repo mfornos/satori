@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Cookie;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
 import satori.security.CsrfHelper;
@@ -23,8 +24,8 @@ public class CsrfFilter implements ResourceFilter, ContainerRequestFilter {
 
         if (cookies.containsKey(CsrfHelper.CSRF_TOKEN_KEY)) {
             Cookie cookie = cookies.get(CsrfHelper.CSRF_TOKEN_KEY);
-            Form params = request.getFormParameters();
-            if (cookie.getValue().equals(params.getFirst(CsrfHelper.CSRF_TOKEN_PARAM))) {
+            String token = resolveToken(request);
+            if (cookie != null && cookie.getValue().equals(token)) {
                 return request;
             }
         }
@@ -41,6 +42,22 @@ public class CsrfFilter implements ResourceFilter, ContainerRequestFilter {
     @Override
     public ContainerResponseFilter getResponseFilter() {
         return null;
+    }
+
+    private String resolveToken(ContainerRequest request) {
+
+        String method = request.getMethod();
+
+        if (method.equals("POST")) {
+            Form params = request.getFormParameters();
+            return params.getFirst(CsrfHelper.CSRF_TOKEN_PARAM);
+        } else if (method.equals("GET")) {
+            MultivaluedMap<String, String> params = request.getQueryParameters();
+            return params.getFirst(CsrfHelper.CSRF_TOKEN_PARAM);
+        }
+
+        return "";
+
     }
 
 }
