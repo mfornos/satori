@@ -29,7 +29,7 @@ module.exports = function (grunt) {
                 separator : ';'
            },
            eventscss: {
-                src: ['src/main/webapp/styles/ext/*.css', 'src/main/webapp/styles/eapp/eapp.css'],
+                src: ['src/main/webapp/styles/ext/*.css','src/main/webapp/styles/ext/jquery-dialog2/*.css','src/main/webapp/styles/ext/ui-bootstrap/*.css', 'src/main/webapp/styles/eapp/eapp.css'],
                 dest: 'src/main/webapp/styles/eapp/all.css'
            },
            metrocss: {
