@@ -53,7 +53,7 @@ public class Events {
     @Path("event/{id}")
     public View event(@PathParam("id") Integer id) {
 
-        return view(DB.getEvent(id)).add("events", DB.events());
+        return view(DB.getEvent(id)).with("events", DB.events());
 
     }
 
@@ -101,7 +101,7 @@ public class Events {
     @RequiresRoles("admin")
     public View formBulkEvents() {
 
-        return view(DB.events()).add("flash", flash);
+        return view(DB.events()).with("flash", flash);
 
     }
 
@@ -111,7 +111,7 @@ public class Events {
     @RequiresRoles("admin")
     public View formBulkDeleteEvents() {
 
-        return view(DB.events()).add("flash", flash);
+        return view(DB.events()).with("flash", flash);
 
     }
 
@@ -168,10 +168,10 @@ public class Events {
 
         Errors<Event> errors = BeanValidator.validate(model);
         if (errors.hasErrors()) {
-            return view(model).add("errors", errors);
+            return view(model).with("errors", errors);
         } else {
             DB.save(model);
-            return view(model).add("success", true);
+            return view(model).with("success", true);
         }
 
     }
@@ -184,10 +184,10 @@ public class Events {
 
         Errors<Reservation> errors = BeanValidator.validate(model);
         if (errors.hasErrors()) {
-            return view(model).add("errors", errors);
+            return view(model).with("errors", errors);
         } else {
             DB.save(model);
-            return view(model).add("success", true);
+            return view(model).with("success", true);
         }
 
     }

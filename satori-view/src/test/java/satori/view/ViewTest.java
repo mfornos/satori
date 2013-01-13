@@ -32,7 +32,7 @@ public class ViewTest {
         Assert.assertEquals(this, v.getModel());
         Assert.assertTrue(v.getMap().isEmpty());
 
-        v.add("hi", "ho");
+        v.with("hi", "ho");
         Assert.assertTrue(v.hasMap());
         Assert.assertEquals(this, ((Map<String, Object>) v.getModel()).get("model"));
         Assert.assertEquals("ho", ((Map<String, Object>) v.getModel()).get("hi"));

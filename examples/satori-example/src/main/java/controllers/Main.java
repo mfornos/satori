@@ -46,16 +46,16 @@ public class Main {
 
         Errors<UserForm> errors = BeanValidator.validate(form);
         if (errors.hasErrors()) {
-            return view(form).add("errors", errors);
+            return view(form).with("errors", errors);
         }
 
         try {
             form.authenticate(request);
         } catch (AuthenticationException ex) {
-            return view(form).add("errors", errors.putSimpleError("auth", "auth.error"));
+            return view(form).with("errors", errors.putSimpleError("auth", "auth.error"));
         }
 
-        return view().add("success", true);
+        return view().with("success", true);
 
     }
 

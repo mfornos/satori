@@ -38,7 +38,7 @@ public class HelloWorldResource {
     @Timed
     public View hello(@QueryParam("name") Optional<String> name) {
 
-        return ResponseUtils.view(name.or(defaultName)).add("counter", counter.incrementAndGet());
+        return ResponseUtils.view(name.or(defaultName)).with("counter", counter.incrementAndGet());
 
     }
 }

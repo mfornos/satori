@@ -12,18 +12,37 @@ import org.yaml.snakeyaml.Yaml;
 
 import satori.utils.LoadUtils;
 
+/**
+ * Configuration helper. Loads configurations in Yaml as well as plain java
+ * maps.
+ * 
+ */
 public class Configuration {
 
     private static final Logger log = LoggerFactory.getLogger(Configuration.class);
 
     private static Map<String, Configuration> yamlCfgs = new HashMap<String, Configuration>();
 
+    /**
+     * Creates a new Configuration instance with the given map.
+     * 
+     * @param properties
+     *            a key value map
+     * @return a Configuration instance
+     */
     public static Configuration from(Map<String, Object> properties) {
 
         return new Configuration(properties);
 
     }
 
+    /**
+     * Loads a Yaml file.
+     * 
+     * @param yamlFile
+     *            the file name
+     * @return a Configuration instance
+     */
     public static Configuration from(String yamlFile) {
 
         if (yamlCfgs.containsKey(yamlFile)) {
@@ -36,6 +55,13 @@ public class Configuration {
 
     }
 
+    /**
+     * Loads the Satori configuration file. By default is named 'satori.yml',
+     * this location can be overridden specifying the '-DsatoriConf=...' system
+     * property.
+     * 
+     * @return a Configuration instance
+     */
     public static Configuration satoriYaml() {
 
         return from(System.getProperty("satoriConf", "satori.yml"));
@@ -102,6 +128,11 @@ public class Configuration {
 
     }
 
+    /**
+     * @param name
+     *            the property name
+     * @return true if the property exists
+     */
     public boolean has(String name) {
 
         return map.containsKey(name) && map.get(name) != null;
@@ -115,6 +146,13 @@ public class Configuration {
 
     }
 
+    /**
+     * Adds all the values of a Yaml file to the current configuration.
+     * 
+     * @param path
+     *            the path of the Yaml file
+     * @return this configuration
+     */
     public Configuration loadYaml(String path) {
 
         map.putAll(yamlToMap(path));

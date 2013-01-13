@@ -31,7 +31,7 @@ import satori.i18n.locale.LocaleSource;
 import satori.view.SatoriView;
 
 /**
- * JAX-RS 1.0 view writer.
+ * JAX-RS {@link SatoriView} writer for HTML and XHTML media types.
  * 
  */
 @Provider
