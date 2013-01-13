@@ -20,35 +20,6 @@ public class CsrfHelper {
 
     private final SecureRandom prng;
 
-    //
-    // private Cookie getCsrfCookie(HttpServletRequest request) {
-    //
-    // if (request.getCookies() != null) {
-    // for (Cookie cookie : request.getCookies()) {
-    // if (cookie.getName().equals(CSRF_TOKEN_KEY)) {
-    // return cookie;
-    // }
-    // }
-    // }
-    //
-    // return new Cookie(CSRF_TOKEN_KEY, "");
-    //
-    // }
-    //
-    // private String prepare(HttpServletRequest request, HttpServletResponse
-    // response) {
-    //
-    // String token =
-    //
-    // Cookie csrfCookie = getCsrfCookie(request);
-    // csrfCookie.setValue(token);
-    //
-    // response.addCookie(csrfCookie);
-    //
-    // return token;
-    //
-    // }
-
     private CsrfHelper() {
 
         this.prng = new SecureRandom();
@@ -56,9 +27,9 @@ public class CsrfHelper {
     }
 
     private String newToken() {
-        
+
         return RandomGenerator.generateRandomId(prng, TOKEN_LENGTH);
-        
+
     }
 
 }
