@@ -5,16 +5,24 @@
     http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>Restful Web Application</display-name>
 
-    <!-- 
+    <listener>
+      <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+    </listener>
+
+    <!--
        Shiro Security Filter
     -->
     <filter>
       <filter-name>Shiro Filter</filter-name>
-      <filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
+      <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
     </filter>
     <filter-mapping>
       <filter-name>Shiro Filter</filter-name>
       <url-pattern>/*</url-pattern>
+      <dispatcher>REQUEST</dispatcher>
+      <dispatcher>FORWARD</dispatcher>
+      <dispatcher>INCLUDE</dispatcher>
+      <dispatcher>ERROR</dispatcher>
     </filter-mapping>
  
     <!-- Auto scan REST service -->

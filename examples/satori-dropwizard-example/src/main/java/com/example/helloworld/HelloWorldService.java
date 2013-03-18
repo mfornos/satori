@@ -1,5 +1,6 @@
 package com.example.helloworld;
 
+import com.yammer.dropwizard.config.Bootstrap;
 import satori.view.HandlebarsRenderer;
 import satori.view.HandlebarsConfiguration;
 
@@ -12,12 +13,13 @@ public class HelloWorldService extends Service<HelloWorldConfiguration> {
         new HelloWorldService().run(args);
     }
 
-    private HelloWorldService() {
-        super("hello-world");
+    @Override
+    public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
+        bootstrap.setName("hello-world");
     }
 
     @Override
-    protected void initialize(HelloWorldConfiguration configuration, Environment environment) {
+    public void run(HelloWorldConfiguration configuration, Environment environment) throws Exception {
         final String template = configuration.getTemplate();
         final String defaultName = configuration.getDefaultName();
 
@@ -28,5 +30,4 @@ public class HelloWorldService extends Service<HelloWorldConfiguration> {
         environment.addResource(new HelloWorldResource(template, defaultName));
         environment.addHealthCheck(new TemplateHealthCheck(template));
     }
-
 }

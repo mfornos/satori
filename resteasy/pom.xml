@@ -10,7 +10,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <properties>
-    <resteasy.version>2.3.4.Final</resteasy.version>
+    <resteasy.version>2.3.5.Final</resteasy.version>
   </properties>
   <modules>
   	<module>satori-resteasy-shiro</module>

@@ -8,17 +8,25 @@
   <listener>
     <listener-class>org.h2.server.web.DbStarter</listener-class>
   </listener>
-  
+
+  <listener>
+      <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+  </listener>
+
   <!-- 
      Shiro Security Filter
   -->
   <filter>
     <filter-name>Shiro Filter</filter-name>
-    <filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
+    <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>Shiro Filter</filter-name>
     <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
   </filter-mapping>
   
   <!-- 

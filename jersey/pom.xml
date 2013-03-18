@@ -12,7 +12,7 @@
 	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-      <jersey.version>1.16</jersey.version>
+      <jersey.version>1.17.1</jersey.version>
     </properties>
 	<modules>
 		<module>satori-jersey</module>

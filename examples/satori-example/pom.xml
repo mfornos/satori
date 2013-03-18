@@ -12,9 +12,9 @@
 	<packaging>war</packaging>
 	<properties>
 		<humanize.version>1.0.0</humanize.version>
-		<atmosphere.version>1.0.0.beta5</atmosphere.version>
-		<h2.version>1.3.168</h2.version>
-		<yammer-metrics.version>2.1.2</yammer-metrics.version>
+		<atmosphere.version>1.0.12</atmosphere.version>
+		<h2.version>1.3.170</h2.version>
+		<yammer-metrics.version>2.2.0</yammer-metrics.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -79,7 +79,7 @@
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>8.1.4.v20120524</version>
+				<version>8.1.9.v20130131</version>
 				<configuration>
 					<scanIntervalSeconds>3000</scanIntervalSeconds>
 					<webAppConfig>

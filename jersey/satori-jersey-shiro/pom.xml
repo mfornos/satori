@@ -10,7 +10,7 @@
 	<artifactId>satori-jersey-shiro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<shiro.version>1.2.0</shiro.version>
+		<shiro.version>1.2.1</shiro.version>
 	</properties>
 	<dependencies>
 	    <dependency>

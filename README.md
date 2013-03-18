@@ -99,9 +99,15 @@ Features
 
 First of all [fork the Satori repo](https://help.github.com/articles/fork-a-repo)
 
-_satori-example_
+_satori-dropwizard-example_
     
-     $ cd satori/examples/satori-example 
+     $ cd satori/examples/satori-dropwizard-example
+     $ mvn package
+     $ java -jar target/satori-dropwizard-example-0.0.1-SNAPSHOT.jar server src/main/resources/hello.yaml
+
+_satori-example_
+
+     $ cd satori/examples/satori-example
      $ mvn jetty:run
 
 _satori-resteasy-example_
